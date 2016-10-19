@@ -1555,6 +1555,46 @@ a.data-block.widget-block.db-active .positive-leads span {
     max-width:160px;
 }
 
+/*source: http://codepen.io/CCG/pen/myvPwM*/
+/* PROGRESS */
+.lead-progress-working {
+	background-color: #e5e9eb;
+	height: 4px;
+	position: relative;
+	width: 100%;
+}
+.lead-progress-bar-working {
+	animation-duration: 3s;
+	animation-name: width;
+	background: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+	animation-iteration-count:infinite;
+	background-size: 100% 4px;
+	height: 100%;
+	position: relative;
+}
+.lead-progress-shadow-working {
+	background-image: linear-gradient(to bottom, #eaecee, transparent);
+	height: 3px;
+	position: absolute;
+	top: 100%;
+	transform: skew(45deg);
+	transform-origin: 0 0;
+	width: 100%;
+}
+						
+/* ANIMATIONS */
+@keyframes width {
+       0%, 100% {
+       transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+  }
+  0% {
+       width: 0;
+  }
+   100% {
+      width: 100%;
+  }
+}
+
 .ui-progressbar{ background: #FA5858!important; }
 .ui-widget-header{ background: #A9F5BC!important; }
 .ui-progressbar .ui-progressbar-value {  height: 104%!important; }
