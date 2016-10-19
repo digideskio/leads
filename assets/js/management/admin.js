@@ -143,6 +143,18 @@ jQuery(document).ready(function($) {
 			text += '<tr id="row"'+i+'><td><p id="progress'+i+'" class="progress"></p></td><td><div  id="progressbar'+i+'" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0"></div></td></tr>';
 		}
 
+		/*add a progress indicator so users know it's working*/
+		if(batch_limit > 1){
+			jQuery("#lead-export-process").append('<div id="lead-progress-working-container">\
+									<h3>Working...</h3>\
+									<div class="lead-progress-working">\
+										<div class="lead-progress-bar-working">\
+											<div class="lead-progress-shadow-working"></div>\
+										</div>\
+									</div>\
+								</div');
+		}		
+	
 		jQuery("#progress-table #the-progress-list").html(text);
 
 		/*leadAction function call*/
@@ -202,8 +214,10 @@ jQuery(document).ready(function($) {
 
 				//if count is greater than or equal to the total number of records
 				if(limit >= total && limit > 1){
-					//output the download url
+					//remove the "working" indicator and output the success message
+					jQuery('#lead-progress-working-container').remove();
 					jQuery(".download-leads-csv").html('<p>' + total + ' leads successfully ' + possibleActions[action] + '</p>');
+					
 				}
 
 				offset = limit;
